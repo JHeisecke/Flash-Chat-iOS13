@@ -7,22 +7,15 @@
 //
 
 import UIKit
+import CLTypingLabel
 
 class WelcomeViewController: UIViewController {
 
-    @IBOutlet weak var titleLabel: UILabel!
-    let chatTitle = "⚡️FlashChat"
+    @IBOutlet weak var titleLabel: CLTypingLabel!
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        DispatchQueue.main.async {
-            self.titleLabel.text = ""
-            for (index, character) in self.chatTitle.enumerated() {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3 * Double(index)) {
-                    self.titleLabel.text?.append(character)
-                }
-            }
-        }
+        self.titleLabel.text = "⚡️FlashChat"
     }
     
 
