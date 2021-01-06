@@ -11,11 +11,18 @@ import UIKit
 class WelcomeViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
-    
+    let chatTitle = "⚡️FlashChat"
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       
+        DispatchQueue.main.async {
+            self.titleLabel.text = ""
+            for (index, character) in self.chatTitle.enumerated() {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3 * Double(index)) {
+                    self.titleLabel.text?.append(character)
+                }
+            }
+        }
     }
     
 
